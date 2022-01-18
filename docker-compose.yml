@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+
+  dev:
+    image: rapporteket/falkdemo
+    restart: "no"
+    ports:
+      - 3838:3838
+    environment:
+      SP_USERNAME: demouser
+      SP_USERGROUPS: demogroups
+      SP_USERORGID: demoregid
+      SP_USEREMAIL: demoemail
+      SP_USERPHONE: demophone
+      SP_USERFULLNAME: demofullname
+      SP_USERREGID: demoregid
+
