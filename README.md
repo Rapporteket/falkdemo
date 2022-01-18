@@ -17,10 +17,10 @@ devtools::install_github("rapporteket/falkdemo")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Run this app in an R terminal:
 
 ``` r
 library(falkdemo)
-## basic example code
+run_app()
 ```
 
