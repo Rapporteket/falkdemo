@@ -23,7 +23,7 @@ app_ui <- function() {
       id = "tabs",
 
       shiny::tabPanel(
-        "Miljøvaraibler",
+        "Miljøvariabler",
         shiny::mainPanel(
           shiny::htmlOutput("username"),
           shiny::htmlOutput("usergroups"),
@@ -31,6 +31,7 @@ app_ui <- function() {
           shiny::htmlOutput("useremail"),
           shiny::htmlOutput("userphone"),
           shiny::htmlOutput("userfullname"),
+          shiny::htmlOutput("userregid"),
           shiny::tags$head(
             shiny::tags$link(rel = "shortcut icon", href = "www/favicon.ico")
           )

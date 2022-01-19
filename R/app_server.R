@@ -27,7 +27,7 @@ app_server <- function(input, output, session) {
   output$userfullname <- shiny::renderUI(
     paste("Bruker fult navn (SP_USERFULLNAME):", Sys.getenv("SP_USERFULLNAME"))
   )
-  output$userfullname <- shiny::renderUI(
+  output$userregid <- shiny::renderUI(
     paste("Bruker register (SP_USERREGID):", Sys.getenv("SP_USERREGID"))
   )
 }
