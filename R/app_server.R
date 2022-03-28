@@ -30,4 +30,19 @@ app_server <- function(input, output, session) {
   output$userregid <- shiny::renderUI(
     paste("Bruker register (SP_USERREGID):", Sys.getenv("SP_USERREGID"))
   )
+  output$configpath <- shiny::renderUI(
+    paste("Sti til konfigurasjon (R_RAP_CONFIG_PATH):",
+          Sys.getenv("R_RAP_CONFIG_PATH"))
+  )
+  output$config <- shiny::renderText({
+    if (Sys.getenv("R_RAP_CONFIG_PATH") == "") {
+      paste("Filsti til konfigurasjon er ikke definert")
+    } else {
+      yaml::as.yaml(
+        yaml::read_yaml(
+          file.path(Sys.getenv("R_RAP_CONFIG_PATH"), "rapbaseConfig.yml")
+        )
+      )
+    }
+  })
 }

@@ -32,9 +32,24 @@ app_ui <- function() {
           shiny::htmlOutput("userphone"),
           shiny::htmlOutput("userfullname"),
           shiny::htmlOutput("userregid"),
+          shiny::htmlOutput("configpath"),
           shiny::tags$head(
             shiny::tags$link(rel = "shortcut icon", href = "www/favicon.ico")
           )
+        )
+      ),
+
+      shiny::tabPanel(
+        "Konfigurasjon",
+        shiny::mainPanel(
+          shiny::verbatimTextOutput("config")
+        )
+      ),
+
+      shiny::tabPanel(
+        "Staging",
+        shiny::mainPanel(
+          shiny::HTML("Hva er lurt?")
         )
       )
     )
