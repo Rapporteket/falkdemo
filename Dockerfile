@@ -2,6 +2,9 @@ FROM rocker/r-ver:4.2.2
 
 LABEL maintainer "Are Edvardsen <are.edvardsen@helse-nord.no>"
 
+ARG GH_PAT
+ENV GITHUB_PAT=${GH_PAT}
+
 # system libraries of general use
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -22,4 +25,5 @@ RUN R -e "install.packages(c('remotes'))" \
     && R -e "remotes::install_github('rapporteket/rapbase')" \
     && R -e "remotes::install_github('rapporteket/falkdemo')"
 
+ADD rapbaseConfig.yml /opt/
 CMD ["R", "-e", "options(shiny.port=3838,shiny.host='0.0.0.0'); falkdemo::run_app()"]
