@@ -25,5 +25,5 @@ RUN R -e "install.packages(c('remotes'))" \
     && R -e "remotes::install_github('rapporteket/rapbase')" \
     && R -e "remotes::install_github('rapporteket/falkdemo')"
 
-ADD rapbaseConfig.yml /opt/
+COPY rapbaseConfig.yml /opt/
 CMD ["R", "-e", "options(shiny.port=3838,shiny.host='0.0.0.0'); falkdemo::run_app()"]
